@@ -46,14 +46,18 @@ FRESULT SD::File::GetError() const noexcept {
 	return error;
 }
 
-int32_t SD::File::Write(const char* string) {
-	return Write(string, strlen(string));
-}
-
-int32_t SD::File::Write(const void* data, size_t size) {
+int32_t SD::File::Write(const void* data, size_t size) noexcept {
 	size_t writed;
 	FRESULT rez = f_write(&fil, data, size, &writed);
 	return rez ? -rez : writed;
+}
+
+int32_t SD::File::Write(const char* string) noexcept{
+	return Write(string, strlen(string));
+}
+
+int32_t SD::File::Write(char* string) noexcept {
+	return Write(const_cast<const char*>(string));
 }
 
 #endif
