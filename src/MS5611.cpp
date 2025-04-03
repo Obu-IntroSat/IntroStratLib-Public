@@ -149,8 +149,8 @@ float MS5611::GetTemperature() {
 	dT = (int32_t)(_raw_temperature) - (int32_t)((_koeff_prom[T_REF] << 8));
 	TEMP = 2000 + (dT * (((int32_t)_koeff_prom[TEMPSENS]) / ((float)(0b1 << 23))));
 	_temperature = ((float)TEMP) / 100.0f;
-	if (_temperature < 20 && _temperature >= -15) {
-		T2 = (uint64_t)(dT * dT) / ((float)(0b1 << 31));
+	if (_temperature < 20) {
+		T2 = ((uint64_t)dT * dT) / ((float)(0b1 << 31));
 	}
 	_temperature -= - T2;
 	return _temperature;
@@ -188,11 +188,11 @@ float MS5611::GetPressure() {
 	OFF = (((int64_t)_koeff_prom[OFF_T1]) << 16) + (dT * (((int64_t)_koeff_prom[TCO]) / ((float)(0b1 << 7))));
 	SENS =  (((int64_t)_koeff_prom[SENS_T1]) << 15) + (dT * (((int64_t)_koeff_prom[TCS]) / ((float)( 0b1 << 8))));
 	P = ((_raw_pressure * (((int64_t)SENS) / ((float)(0b1 << 21)))) - OFF) / ((float)(0b1 << 15));
-	if (_temperature < 20 && _temperature >= -15) {
+	if (_temperature < 20) {
 		OFF2 = 5 * (_temperature - 2000) * (_temperature - 2000) / 2.0f;
 		SENS2 = 5 * (_temperature - 2000) * (_temperature - 2000) / 4.0f;
 	}
-	else if (_temperature < -15) {
+	if (_temperature < -15) {
 		OFF2 += 7 * (_temperature + 1500)*(_temperature + 1500);
 		SENS2 += 11 * (_temperature + 1500)*(_temperature + 1500) / 2.0f;
 	}
@@ -206,6 +206,10 @@ float MS5611::GetPressure() {
 
 float MS5611::GetHeight() {
 	return 18400.0f * log(P_SEA_LEVEL / GetPressure());
+}
+
+float MS5611::GetHeightDS() {
+	return 44330.0f * (1.0f - pow((_pressure / 1013.25), 01903));
 }
 
 MS5611::~MS5611() {

@@ -12,28 +12,21 @@
 #include <cmath>
 #include <array>
 
-namespace IntroStratLib
-{
+namespace IntroStratLib {
 
-	class Magnetometer : public Device
-	{
-		uint16_t _mx = 0;
-		uint16_t _my = 0;
-		uint16_t _mz = 0;
+class Magnetometer : public Device {
 
-	public:
+public:
 
-		void Read();
+	int16_t RawMX();
+	int16_t RawMY();
+	int16_t RawMZ();
 
-		int16_t RawMX();
-		int16_t RawMY();
-		int16_t RawMZ();
+	float MX();
+	float MY();
+	float MZ();
 
-		float MX();
-		float MY();
-		float MZ();
-
-	};
+};
 
 } /* namespace IntroSatLib */
 
