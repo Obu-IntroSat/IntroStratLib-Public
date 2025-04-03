@@ -13,6 +13,7 @@
 #include "stdint.h"
 #include "string.h"
 #include "stdio.h"
+#include "math.h"
 
 namespace IntroStratLib {
 
@@ -60,6 +61,7 @@ private:
 	};
 
 	static const uint8_t BASE_ADDRESS = 0x77; /* another available address is 0x76 */
+	static constexpr float P_SEA_LEVEL = 1013.25f;
 
 	uint8_t _sensitivity = 0;
 
@@ -108,6 +110,7 @@ public:
 
 	float GetPressure(); // TODO: if error return NaN
 	float GetTemperature();
+	float GetHeight();
 
 	~MS5611();
 };
