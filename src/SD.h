@@ -40,18 +40,28 @@ class SD : public Device
 		HAL_StatusTypeDef Init() noexcept;
 		FRESULT GetError() const noexcept;
 
-		int32_t Write(const char* string) noexcept;
 		int32_t Write(const void* data, size_t size) noexcept;
 
-		FRESULT Close() noexcept;
+		int32_t Write(const char* string) noexcept;
+		int32_t Write(char* string) noexcept;
 
 		template <class T>
-		int32_t Write(const T& data) noexcept {
-			return Write(data, sizeof(T));
-		}
+		inline int32_t Write(const T& data) noexcept;
 
+		template <class T>
+		int32_t Write(const T*) = delete;
+
+		template <class T>
+		int32_t Write(T*) = delete;
+
+		FRESULT Close() noexcept;
 	};
 };
+
+template <class T>
+int32_t SD::File::Write(const T& data) noexcept {
+	return Write(data, sizeof(T));
+}
 
 }
 
