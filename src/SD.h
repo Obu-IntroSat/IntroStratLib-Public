@@ -35,7 +35,7 @@ class SD : public Device
 		FRESULT error;
 	  public:
 		File(const char* path, uint8_t mode); // For mode use FA_READ, FA_WRITE ... (SD/FATFS/FatFs/src/ff.h:325)
-		//~File();
+		~File();
 
 		HAL_StatusTypeDef Init() noexcept;
 		FRESULT GetError() const noexcept;

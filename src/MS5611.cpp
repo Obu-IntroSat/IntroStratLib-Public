@@ -209,7 +209,7 @@ float MS5611::GetHeight() {
 }
 
 float MS5611::GetHeightDS() {
-	return 44330.0f * (1.0f - pow((_pressure / 1013.25), 01903));
+	return 44330.0f * (1.0f - pow((_pressure / 1013.25), 0.1903));
 }
 
 MS5611::~MS5611() {
