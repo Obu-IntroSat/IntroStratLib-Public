@@ -9,24 +9,6 @@
 
 namespace IntroStratLib {
 
-int16_t Accelerometer::RawAX() {
-}
-
-int16_t Accelerometer::RawAY() {
-}
-
-int16_t Accelerometer::RawAZ() {
-}
-
-float Accelerometer::AX() {
-}
-
-float Accelerometer::AY() {
-}
-
-float Accelerometer::AZ() {
-}
-
 }
 
 

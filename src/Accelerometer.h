@@ -15,13 +15,13 @@ namespace IntroStratLib {
 class Accelerometer: virtual public Device {
 
 public:
-	virtual int16_t RawAX();
-	virtual int16_t RawAY();
-	virtual int16_t RawAZ();
+	virtual int16_t RawAX() = 0;
+	virtual int16_t RawAY() = 0;
+	virtual int16_t RawAZ() = 0;
 
-	virtual float AX();
-	virtual float AY();
-	virtual float AZ();
+	virtual float AX() = 0;
+	virtual float AY() = 0;
+	virtual float AZ() = 0;
 };
 
 } /* namespace IntroStratLib */

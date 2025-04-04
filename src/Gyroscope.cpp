@@ -9,26 +9,6 @@
 
 namespace IntroStratLib {
 
-int16_t Gyroscope::RawGX() {
-
-}
-int16_t Gyroscope::RawGY() {
-
-}
-int16_t Gyroscope::RawGZ() {
-
-}
-
-float Gyroscope::GX() {
-
-}
-float Gyroscope::GY() {
-
-}
-float Gyroscope::GZ() {
-
-}
-
 } /* namespace IntroStratLib */
 
 
