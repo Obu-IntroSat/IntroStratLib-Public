@@ -111,7 +111,6 @@ public:
 	float GetPressure(); // TODO: if error return NaN
 	float GetTemperature();
 	float GetHeight();
-	float GetHeightDS(); // DS stands for Deep Seek :D
 
 	~MS5611();
 };

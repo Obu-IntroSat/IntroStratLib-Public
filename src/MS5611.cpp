@@ -205,10 +205,6 @@ float MS5611::GetPressure() {
 }
 
 float MS5611::GetHeight() {
-	return 18400.0f * log(P_SEA_LEVEL / GetPressure());
-}
-
-float MS5611::GetHeightDS() {
 	return 44330.0f * (1.0f - pow((_pressure / 1013.25), 0.1903));
 }
 
