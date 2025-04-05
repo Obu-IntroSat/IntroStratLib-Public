@@ -14,21 +14,14 @@ namespace IntroStratLib {
 
 class Barometer: public Device {
 
-private:
-	uint32_t _raw_pressure;
-	float _pressure;
-	uint32_t _raw_temperature;
-	float _temperature;
-
 public:
-	virtual uint32_t GetRawPressure();
-	virtual uint32_t GetRawTemperature();
-	virtual float GetPressure();
-	virtual float GetTemperature();
+	virtual uint32_t GetRawPressure() = 0;
+	virtual uint32_t GetRawTemperature() = 0;
+	virtual float GetPressure() = 0;
+	virtual float GetTemperature() = 0;
 };
 
 } /* namespace IntroStratLib */
-
 
 
 #endif /* BAROMETER_H_ */

@@ -15,13 +15,13 @@ namespace IntroStratLib {
 class Gyroscope: virtual public Device {
 
 public:
-	virtual int16_t RawGX();
-	virtual int16_t RawGY();
-	virtual int16_t RawGZ();
+	virtual int16_t RawGX() = 0;
+	virtual int16_t RawGY() = 0;
+	virtual int16_t RawGZ() = 0;
 
-	virtual float GX();
-	virtual float GY();
-	virtual float GZ();
+	virtual float GX() = 0;
+	virtual float GY() = 0;
+	virtual float GZ() = 0;
 };
 
 } /* namespace IntroStratLib */
