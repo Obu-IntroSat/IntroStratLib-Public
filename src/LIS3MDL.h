@@ -66,13 +66,13 @@ public:
 
 	void SetScale(Scale sensitivity);
 
-	int16_t RawMX();
-	int16_t RawMY();
-	int16_t RawMZ();
+	int16_t RawMX() override;
+	int16_t RawMY() override;
+	int16_t RawMZ() override;
 
-	float MX();
-	float MY();
-	float MZ();
+	float MX() override;
+	float MY() override;
+	float MZ() override;
 
 	~LIS3MDL();
 };

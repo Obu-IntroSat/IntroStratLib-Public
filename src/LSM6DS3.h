@@ -124,21 +124,21 @@ public:
 	void SetDataRateAccel(DataRateAccel dataRateAccel);
 
 public:
-	int16_t RawGX();
-	int16_t RawGY();
-	int16_t RawGZ();
+	int16_t RawGX() override;
+	int16_t RawGY() override;
+	int16_t RawGZ() override;
 
-	float GX();
-	float GY();
-	float GZ();
+	float GX() override;
+	float GY() override;
+	float GZ() override;
 
-	int16_t RawAX();
-	int16_t RawAY();
-	int16_t RawAZ();
+	int16_t RawAX() override;
+	int16_t RawAY() override;
+	int16_t RawAZ() override;
 
-	float AX();
-	float AY();
-	float AZ();
+	float AX() override;
+	float AY() override;
+	float AZ() override;
 
 	void SetMinCutX(float x);
 	void SetMinCutY(float y);

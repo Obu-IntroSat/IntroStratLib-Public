@@ -18,13 +18,13 @@ class Magnetometer : public Device {
 
 public:
 
-	int16_t RawMX();
-	int16_t RawMY();
-	int16_t RawMZ();
+	virtual int16_t RawMX() = 0;
+	virtual int16_t RawMY() = 0;
+	virtual int16_t RawMZ() = 0;
 
-	float MX();
-	float MY();
-	float MZ();
+	virtual float MX() = 0;
+	virtual float MY() = 0;
+	virtual float MZ() = 0;
 
 };
 

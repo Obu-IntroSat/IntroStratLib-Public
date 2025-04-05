@@ -105,11 +105,11 @@ public:
 
 	uint8_t ADCRead();
 
-	uint32_t GetRawPressure();
-	uint32_t GetRawTemperature();
+	uint32_t GetRawPressure() override;
+	uint32_t GetRawTemperature() override;
 
-	float GetPressure(); // TODO: if error return NaN
-	float GetTemperature();
+	float GetPressure() override; // TODO: if error return NaN
+	float GetTemperature() override;
 	float GetHeight();
 
 	~MS5611();
