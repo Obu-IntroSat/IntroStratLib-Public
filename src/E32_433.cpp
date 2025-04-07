@@ -123,10 +123,7 @@ void E32_433::Send(uint8_t *data, uint16_t len) {
 
 void E32_433::Init() {
 	waitForReady();
-	HAL_Delay(20);
-	SetMode(MODE::SLEEP, false);
-	ReadSettings();
-	SetMode(MODE::NORMAL, 0);
+	SetMode(MODE::NORMAL, false);
 	waitForReady();
 }
 void E32_433::DumpSettings(UART_HandleTypeDef* uart, E32_SettingsBytes sb) {
