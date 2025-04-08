@@ -32,14 +32,32 @@ void E32_433::SetSettings(E32_SettingsBytes* _sb) {
 }
 
 void E32_433::SetUartParity(UART_PARITY parity) {
+	SetMode(MODE::SLEEP, false);
+	_readSettings();
+	_settings.SPED &= 0b00111111;
+	_settings.SPED |= (uint8_t)parity;
+	_writeSettings(&_settings);
+	SetMode(MODE::NORMAL);
 	// TODO implement
 }
 
 void E32_433::SetUARTBaudrate(UART_BAUDRATE baudrate) {
+	SetMode(MODE::SLEEP, false);
+	_readSettings();
+	_settings.SPED &= 0b11000111;
+	_settings.SPED |= (uint8_t)baudrate;
+	_writeSettings(&_settings);
+	SetMode(MODE::NORMAL);
 	// TODO implement
 }
 
 void E32_433::SetAirDatarate(AIR_DATARATE datarate) {
+	SetMode(MODE::SLEEP, false);
+	_readSettings();
+	_settings.SPED &= 0b11111000;
+	_settings.SPED |= (uint8_t)datarate;
+	_writeSettings(&_settings);
+	SetMode(MODE::NORMAL);
 	// TODO implement
 }
 
@@ -53,14 +71,32 @@ void E32_433::SetChannel(uint8_t channel) {
 }
 
 void E32_433::SetFixedTransmission(TRANSMISSION_MODE mode) {
+	SetMode(MODE::SLEEP, false);
+	_readSettings();
+	_settings.OPTION &= 0b01111111;
+	_settings.OPTION |= (uint8_t)mode;
+	_writeSettings(&_settings);
+	SetMode(MODE::NORMAL);
 	// TODO implement
 }
 
 void E32_433::SetWakeUpTime(WAKE_UP_TIME wtime) {
+	SetMode(MODE::SLEEP, false);
+	_readSettings();
+	_settings.OPTION &= 0b11000111;
+	_settings.OPTION |= (uint8_t)wtime;
+	_writeSettings(&_settings);
+	SetMode(MODE::NORMAL);
 	// TODO implement
 }
 
 void E32_433::SetFEC(FEC fec) {
+	SetMode(MODE::SLEEP, false);
+	_readSettings();
+	_settings.OPTION &= 0b11111011;
+	_settings.OPTION |= (uint8_t)fec;
+	_writeSettings(&_settings);
+	SetMode(MODE::NORMAL);
 	// TODO implement
 }
 
@@ -137,14 +173,16 @@ void E32_433::Init() {
 void E32_433::DumpSettings(UART_HandleTypeDef* uart, E32_SettingsBytes sb) {
 	char str[40] = {0};
 	printToUart(uart, "LoRa configuration:\n\0");
-	sprintf(str, "Channel: 0x%X\n", sb.CHAN);
-	printToUart(uart, str);
+//	sprintf(str, "Channel: 0x%X\n", sb.CHAN);
+//	printToUart(uart, str);
 	sprintf(str, "write_ptr: %d\n", _rx_write_offset);
 	printToUart(uart, str);
 	sprintf(str, "read_ptr: %d\n", _rx_read_offset);
 	printToUart(uart, str);
-//	sprintf(str, "Channel: 0x%X\n\r", sb.CHAN);
-//	printToUart(uart, str);
+	sprintf(str, "Sped: 0x%X\n\r", sb.SPED);
+	printToUart(uart, str);
+	sprintf(str, "Channel: 0x%X\n\r", sb.CHAN);
+	printToUart(uart, str);
 	sprintf(str, "Option: 0x%X\n\r", sb.OPTION);
 	printToUart(uart, str);
 }

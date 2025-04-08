@@ -114,7 +114,7 @@ public:
 		P_33dBm = 0b00, P_30dBm = 0b01, P_27dBm = 0b10, P_24dBm = 0b11
 	};
 	enum class TX_POWER_D : uint8_t {
-		P_30dBm = 0x00, P_27dBm = 0x01, P_24dBm = 0x02, P_21dBm = 0x03
+		P_30dBm = 0b00, P_27dBm = 0b01, P_24dBm = 0b10, P_21dBm = 0b11
 	};
 //	typedef struct  {
 //		uint8_t CMD = 0x00;
