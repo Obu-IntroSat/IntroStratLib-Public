@@ -114,7 +114,7 @@ public:
 		P_33dBm = 0b00, P_30dBm = 0b01, P_27dBm = 0b10, P_24dBm = 0b11
 	};
 	enum class TX_POWER_D : uint8_t {
-		P_30dBm = 0b00, P_27dBm = 0b01, P_24dBm = 0b10, P_21dBm = 0b11
+		P_30dBm = 0x00, P_27dBm = 0x01, P_24dBm = 0x02, P_21dBm = 0x03
 	};
 //	typedef struct  {
 //		uint8_t CMD = 0x00;
@@ -146,7 +146,7 @@ public:
 			TRANSMISSION_MODE::M_TRANSPARENT);
 	void SetWakeUpTime(WAKE_UP_TIME wtime = WAKE_UP_TIME::T_250ms);
 	void SetFEC(FEC fec = FEC::FEC_ENABLED);
-	void SetTXPower(TX_POWER power = TX_POWER::P_DEFAULT);
+	void SetTXPower(TX_POWER_D power = TX_POWER_D::P_30dBm);
 	void Send(uint8_t *data, uint16_t len) override;
 	HAL_StatusTypeDef ReadSettings();
 	HAL_StatusTypeDef GetSettings(E32_SettingsBytes *settings);
