@@ -64,7 +64,15 @@ void E32_433::SetFEC(FEC fec) {
 	// TODO implement
 }
 
-void E32_433::SetTXPower(TX_POWER power) {
+void E32_433::SetTXPower(TX_POWER_D power) {
+	SetMode(MODE::SLEEP, false);
+	_readSettings();
+//	_settings.OPTION &= 0xFF ^ ((uint8_t)power);
+//	_settings.OPTION |= (uint8_t)power;
+	_settings.OPTION &= 0b11111100;
+	_settings.OPTION |= (uint8_t)power;
+	_writeSettings(&_settings);
+	SetMode(MODE::NORMAL);
 	// TODO implement
 }
 
@@ -137,6 +145,8 @@ void E32_433::DumpSettings(UART_HandleTypeDef* uart, E32_SettingsBytes sb) {
 	printToUart(uart, str);
 //	sprintf(str, "Channel: 0x%X\n\r", sb.CHAN);
 //	printToUart(uart, str);
+	sprintf(str, "Option: 0x%X\n\r", sb.OPTION);
+	printToUart(uart, str);
 }
 
 HAL_StatusTypeDef E32_433::_readSettings(uint8_t retries) {
@@ -155,7 +165,7 @@ HAL_StatusTypeDef E32_433::_readSettings(uint8_t retries) {
 
 HAL_StatusTypeDef E32_433::_writeSettings(E32_SettingsBytes *_sb,
 		uint8_t retries) {
-	uint8_t tx_buf[1] = { E32_COMMAND::SET_PARAMETERS_NO_SAVE };
+	uint8_t tx_buf[1] = { E32_COMMAND::SET_PARAMETERS_SAVE };
 	uint8_t rx_buf[6];
 	waitForReady(5);
 //	_readSettings();
