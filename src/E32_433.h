@@ -146,7 +146,7 @@ public:
 			TRANSMISSION_MODE::M_TRANSPARENT);
 	void SetWakeUpTime(WAKE_UP_TIME wtime = WAKE_UP_TIME::T_250ms);
 	void SetFEC(FEC fec = FEC::FEC_ENABLED);
-	void SetTXPower(TX_POWER power = TX_POWER::P_DEFAULT);
+	void SetTXPower(TX_POWER_D power = TX_POWER_D::P_30dBm);
 	void Send(uint8_t *data, uint16_t len) override;
 	HAL_StatusTypeDef ReadSettings();
 	HAL_StatusTypeDef GetSettings(E32_SettingsBytes *settings);
