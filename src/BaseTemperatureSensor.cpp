@@ -9,15 +9,15 @@
 
 namespace IntroStratLib {
 
-float TemperatureSensor::GetTemperature() {
+float BaseTemperatureSensor::GetTemperature() {
 	return temperature;
 }
 
-float TemperatureSensor::GetTemperatureC() {
+float BaseTemperatureSensor::GetTemperatureC() {
 	return GetTemperature();
 }
 
-float TemperatureSensor::GetTemperatureF() {
+float BaseTemperatureSensor::GetTemperatureF() {
 //	return GetTemperature() * 9 / 5 + 32; // TODO: Faster algorithm? Maybe optimize for LM75A using LM75A::GetTemperatureTimes8
 	return GetTemperature() * 2 + 31;
 }

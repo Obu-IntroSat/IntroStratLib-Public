@@ -9,7 +9,7 @@
 #define LIS3MDL_H_
 
 #include "I2CDevice.h"
-#include "Magnetometer.h"
+#include "BaseMagnetometer.h"
 #include <cmath>
 #include <array>
 

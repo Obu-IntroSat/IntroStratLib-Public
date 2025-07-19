@@ -9,8 +9,8 @@
 #define LSM6DS3_H_
 
 #include "I2CDevice.h"
-#include "Gyroscope.h"
-#include "Accelerometer.h"
+#include "BaseGyroscope.h"
+#include "BaseAccelerometer.h"
 
 namespace IntroStratLib {
 

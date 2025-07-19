@@ -7,7 +7,8 @@
 #ifndef I2C_ER_H_
 
 #define I2C_ER_H_
-
+#include "stdint.h"
+#include "stm32h7xx_hal.h"
 
 #define SCL_PIN GPIO_PIN_6
 #define SCL_PORT GPIOB
