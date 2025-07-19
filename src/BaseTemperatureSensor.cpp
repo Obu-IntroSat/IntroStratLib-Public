@@ -5,7 +5,7 @@
  *      Author: Aleksey <TeaCupMe> Gilenko
  */
 
-#include "TemperatureSensor.h"
+#include "BaseTemperatureSensor.h"
 
 namespace IntroStratLib {
 
