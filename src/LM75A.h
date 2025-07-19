@@ -19,7 +19,7 @@ namespace IntroStratLib {
 
 
 
-class LM75A: public TemperatureSensor {
+class LM75A: public BaseTemperatureSensor {
 private:
 	enum RegisterMap: uint8_t {
 			TEMPERATURE = 0x00,

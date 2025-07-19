@@ -12,7 +12,7 @@
 
 namespace IntroStratLib {
 
-class Accelerometer: virtual public Device {
+class BaseAccelerometer: virtual public Device {
 
 public:
 	virtual int16_t RawAX() = 0;

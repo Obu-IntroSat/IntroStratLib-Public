@@ -14,7 +14,7 @@
 
 namespace IntroStratLib {
 
-class LSM6DS3: public Gyroscope, public Accelerometer {
+class LSM6DS3: public BaseGyroscope, public BaseAccelerometer {
 private:
 
 	static const uint8_t BASE_ADDRESS = 0x6A;
@@ -33,6 +33,8 @@ private:
 		WHO_AM_I_REG = 0X0F,
 		CTRL1_XL = 0X10,
 		CTRL8_XL = 0X17,
+		CTRL9_XL,
+		CTRL10_C,
 		OUT_TEMP_L = 0X20,
 		OUT_TEMP_H = 0X21,
 		OUTX_L_XL = 0X28,

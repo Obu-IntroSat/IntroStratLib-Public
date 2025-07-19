@@ -26,6 +26,7 @@ uint8_t LSM6DS3::WhoAmI() {
 
 uint8_t LSM6DS3::InitGyro(ScaleGyro sensitivityGyro, DataRateGyro dataRateGyro, uint8_t force)
 {
+	HAL_Delay(15); // wait for power up
 	HAL_StatusTypeDef status = _i2c.isReady(force);
 	if (status) {
 		return status;
@@ -40,7 +41,7 @@ uint8_t LSM6DS3::InitGyro(ScaleGyro sensitivityGyro, DataRateGyro dataRateGyro, 
 
 uint8_t LSM6DS3::InitGyro(ScaleGyro sensitivityGyro, uint8_t force)
 {
-	return InitGyro(sensitivityGyro, DataRateGyro::DR_G_104_Hz, force);
+	return InitGyro(sensitivityGyro, DataRateGyro::DR_G_416_Hz, force);
 }
 uint8_t LSM6DS3::InitGyro(uint8_t force)
 {
@@ -49,6 +50,7 @@ uint8_t LSM6DS3::InitGyro(uint8_t force)
 
 uint8_t LSM6DS3::InitAccel(ScaleAccel sensitivityAccel, DataRateAccel dataRateAccel, uint8_t force)
 {
+	HAL_Delay(15); // wait for power up
 	HAL_StatusTypeDef status = _i2c.isReady(force);
 	if (status) {
 		return status;

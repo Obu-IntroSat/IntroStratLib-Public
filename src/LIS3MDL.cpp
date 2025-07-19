@@ -47,7 +47,7 @@ void LIS3MDL::SetScale(Scale sensitivity)
 
 int16_t LIS3MDL::RawMX()
 {
-	if (_i2c.GetRegister(RegisterMap::STATUS_REG)&0x08) {
+	if (_i2c.GetRegister(RegisterMap::STATUS_REG)&0x01) {
 		uint8_t buf[2];
 		_i2c.read(RegisterMap::OUT_X_L, buf, 2);
 		_mx = buf[1] << 8 | buf[0];
@@ -56,7 +56,7 @@ int16_t LIS3MDL::RawMX()
 }
 int16_t LIS3MDL::RawMY()
 {
-	if (_i2c.GetRegister(RegisterMap::STATUS_REG)&0x08) {
+	if (_i2c.GetRegister(RegisterMap::STATUS_REG)&0x02) {
 		uint8_t buf[2];
 		_i2c.read(RegisterMap::OUT_Y_L, buf, 2);
 		_my = buf[1] << 8 | buf[0];
@@ -65,7 +65,7 @@ int16_t LIS3MDL::RawMY()
 }
 int16_t LIS3MDL::RawMZ()
 {
-	if (_i2c.GetRegister(RegisterMap::STATUS_REG)&0x08) {
+	if (_i2c.GetRegister(RegisterMap::STATUS_REG)&0x04) {
 		uint8_t buf[2];
 		_i2c.read(RegisterMap::OUT_Z_L, buf, 2);
 		_mz = buf[1] << 8 | buf[0];

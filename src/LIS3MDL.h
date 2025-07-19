@@ -15,7 +15,7 @@
 
 namespace IntroStratLib {
 
-class LIS3MDL : public Magnetometer {
+class LIS3MDL : public BaseMagnetometer {
 private:
 	static const uint8_t BASE_ADDRESS = 0x1C;
 	static constexpr float _rawg = 27386.0f / 4.0f; // Gauss

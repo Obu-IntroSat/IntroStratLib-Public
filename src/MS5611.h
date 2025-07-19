@@ -17,7 +17,7 @@
 
 namespace IntroStratLib {
 
-class MS5611 : public Barometer {
+class MS5611 : public BaseBarometer {
 
 public:
 

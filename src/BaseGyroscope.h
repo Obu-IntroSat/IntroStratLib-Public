@@ -12,7 +12,7 @@
 
 namespace IntroStratLib {
 
-class Gyroscope: virtual public Device {
+class BaseGyroscope: virtual public Device {
 
 public:
 	virtual int16_t RawGX() = 0;

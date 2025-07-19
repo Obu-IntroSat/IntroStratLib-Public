@@ -12,7 +12,7 @@
 
 namespace IntroStratLib {
 
-class Barometer: public Device {
+class BaseBarometer: public Device {
 
 public:
 	virtual uint32_t GetRawPressure() = 0;
