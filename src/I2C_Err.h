@@ -120,11 +120,11 @@ static void I2C_ClearBusyFlagErratum_F103(I2C_HandleTypeDef *hi2c, uint32_t time
 
 
 // Call initialization function.
-#ifdef ARDUINO
-    Wire.begin();
-#else
+// #ifdef ARDUINO
+//     Wire.begin();
+// #else
     HAL_I2C_Init(hi2c);
-#endif
+// #endif
 }
 #endif
 
@@ -132,12 +132,12 @@ static void I2C_ClearBusyFlagErratum_F103(I2C_HandleTypeDef *hi2c, uint32_t time
 static void I2C_ErrorAnalyzer(I2C_HandleTypeDef *hi2c)
 {
     // когда-нибудь здесь будет полноценная обработка ошибок...
-#ifdef ARDUINO // If in Arduino IDE - let stm32duino handle bus recovery 
-    Wire.end();
-    HAL_Delay(I2C_TIMEOUT_BASE);
-    Wire.begin();
-    return;
-#elifdef STM32F103xx
+// #ifdef ARDUINO // If in Arduino IDE - let stm32duino handle bus recovery 
+//     Wire.end();
+//     HAL_Delay(I2C_TIMEOUT_BASE);
+//     Wire.begin();
+//     return;
+#ifdef STM32F103xx
     I2C_ClearBusyFlagErratum(hi2c, I2C_TIMEOUT_ERRATUM);
 #endif
 }
