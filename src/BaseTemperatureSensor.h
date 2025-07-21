@@ -12,7 +12,7 @@
 
 namespace IntroStratLib {
 
-class TemperatureSensor: public Device {
+class BaseTemperatureSensor: public Device {
 
 private:
 

@@ -8,7 +8,7 @@
 #ifndef MS5611_H_
 #define MS5611_H_
 
-#include "Barometer.h"
+#include "BaseBarometer.h"
 #include "I2CDevice.h"
 #include "stdint.h"
 #include "string.h"
@@ -17,7 +17,7 @@
 
 namespace IntroStratLib {
 
-class MS5611 : public Barometer {
+class MS5611 : public BaseBarometer {
 
 public:
 

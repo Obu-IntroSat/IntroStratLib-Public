@@ -14,7 +14,7 @@
 
 namespace IntroStratLib {
 
-class Magnetometer : public Device {
+class BaseMagnetometer : public Device {
 
 public:
 

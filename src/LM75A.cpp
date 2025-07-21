@@ -121,22 +121,4 @@ void LM75A::DumpData(UART_HandleTypeDef* _uart) {
 //}
 
 
-void LM75A::DumpData(RadioTransceiver* radio) {
-	char tx_buf[40] = {0};
-	sprintf(tx_buf, "lm75ad init: %d\n\r", Init());
-	radio->Send((uint8_t *)tx_buf, strlen(tx_buf));
-	sprintf(tx_buf, "Raw temperature: %X\n\r", GetRawTemperature());
-	radio->Send((uint8_t *)tx_buf, strlen(tx_buf));
-	sprintf(tx_buf, "Temperature: %f\n\r",  GetTemperature());
-	radio->Send((uint8_t *)tx_buf, strlen(tx_buf));
-	sprintf(tx_buf, "Temperature in F: %f\n\r",  GetTemperatureF());
-	radio->Send((uint8_t *)tx_buf, strlen(tx_buf));
-	sprintf(tx_buf, "Temperature times 8: %d\n\r",  GetTemperatureTimes8());
-	radio->Send((uint8_t *)tx_buf, strlen(tx_buf));
-	sprintf(tx_buf, "Config: %X\n\r",  GetConfig());
-	radio->Send((uint8_t *)tx_buf, strlen(tx_buf));
-
-	////	HAL_Delay(1000);
-}
-
 }

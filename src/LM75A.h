@@ -7,8 +7,7 @@
 
 #ifndef LM75A_H_
 #define LM75A_H_
-#include "TemperatureSensor.h"
-#include "RadioTransceiver.h"
+#include "BaseTemperatureSensor.h"
 #include "I2CDevice.h"
 #include "stdint.h"
 #include "string.h"
@@ -19,7 +18,7 @@ namespace IntroStratLib {
 
 
 
-class LM75A: public TemperatureSensor {
+class LM75A: public BaseTemperatureSensor {
 private:
 	enum RegisterMap: uint8_t {
 			TEMPERATURE = 0x00,
@@ -64,7 +63,6 @@ public:
 	void PowerDown(bool shutdown);
 	void DumpData(UART_HandleTypeDef* _uart);
 //	void DumpData(void (*transmitMethod)(uint8_t* str, uint16_t len));
-	void DumpData(RadioTransceiver* radio);
 
 };
 

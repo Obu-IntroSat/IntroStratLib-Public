@@ -9,6 +9,7 @@
 #define I2CDEVICE_H_
 
 #include <stdint.h>
+#include "I2C_Err.h"
 
 #ifndef __MAIN_H
 
